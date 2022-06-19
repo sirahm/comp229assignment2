@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Movie List</h1>
+    <h2 class="mb-5">Business List</h2>
 
     <div class="row">
         <div class="col">
@@ -9,9 +9,8 @@
                     <tr>
                         <th scope="col" class="text-center">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Year</th>
-                        <th scope="col">Director</th>
-                        <th scope="col">Rating</th>
+                        <th scope="col">Contact Number</th>
+                        <th scope="col">Email Address</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -22,11 +21,11 @@
                         <tr>
                             <th scope="row" class="text-center"><%= count + 1 %></th>
                             <td><%= movies[count].Name %></td>
-                            <td><%= movies[count].Year %></td>
-                            <td><%= movies[count].Director %></td>
-                            <td><%= movies[count].Rating %></td>
-                            <td></td>
-                            <td></td>
+                            <td><%= movies[count].ContactNumber %></td>
+                            <td><%= movies[count].EmailAddress %></td>
+                
+            
+                      
                         </tr>
                     <% } %>
                 </tbody>

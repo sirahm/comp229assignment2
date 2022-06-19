@@ -17,3 +17,62 @@ function DisplayMovieList(req, res, next) {
 }
 exports.DisplayMovieList = DisplayMovieList;
 //# sourceMappingURL=movie-list.js.map
+
+module.exports.displayEditPage = (req, res, next) => {
+    let id = req.params.id;
+
+    Business.findById(id, (err, bookToEdit) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            //show the edit view
+            res.render('book/edit', {title: 'Edit Contact', book: bookToEdit})
+        }
+    });
+}
+
+module.exports.processEditPage = (req, res, next) => {
+    let id = req.params.id
+
+    let updatedBook = Book({
+        "_id": id,
+        "name": req.body.name,
+        "contactNumber": req.body.contactNumber,
+        "emailAddress": req.body.emailAddress,
+      
+    });
+
+    Book.updateOne({_id: id}, updatedBook, (err) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            // refresh the book list
+            res.redirect('/movie-list');
+        }
+    });
+}
+
+module.exports.performDelete = (req, res, next) => {
+    let id = req.params.id;
+
+    Book.remove({_id: id}, (err) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+             // refresh the book list
+             res.redirect('/movie-list');
+        }
+    });
+}

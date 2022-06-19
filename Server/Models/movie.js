@@ -5,14 +5,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const Schema = mongoose_1.default.Schema;
-const MovieSchema = new Schema({
+const BusinessSchema = new Schema({
     Name: String,
-    Year: String,
-    Director: String,
-    Rating: String
+    ContactNumber: String,
+    EmailAddress: String,
+  
 }, {
-    collection: "movies"
+    collection: "business"
 });
-const Model = mongoose_1.default.model("Movies", MovieSchema);
+const Model = mongoose_1.default.model("Business", BusinessSchema);
 exports.default = Model;
 //# sourceMappingURL=movie.js.map
